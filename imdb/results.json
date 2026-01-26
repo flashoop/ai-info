@@ -1,0 +1,10 @@
+{
+  "test_accuracy": 0.87976,
+  "test_precision": 0.8756132299414464,
+  "test_recall": 0.88528,
+  "test_f1": 0.8804200811520407,
+  "val_accuracy": 0.8772,
+  "val_precision": 0.8677847113884556,
+  "val_recall": 0.89,
+  "val_f1": 0.8787519747235387
+}
