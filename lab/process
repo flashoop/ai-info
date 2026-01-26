@@ -1,0 +1,7 @@
+source .venv/bin/activate
+
+
+uv pip install scikit-learn pandas jupyter ipykernel
+
+
+python -m ipykernel install --user --name venv_ml --display-name "Python 3 (SEC595_ML)"

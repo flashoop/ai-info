@@ -1,0 +1,83 @@
+python3 -m venv .venv
+
+source .venv/bin/activate
+
+
+uv pip install scikit-learn pandas jupyter ipykernel
+
+
+python -m ipykernel install --user --name venv_ml --display-name "Python 3 (SEC595_ML)"
+
+
+sudo apt install openssh-server -y
+sudo service ssh start
+
+
+ps -ef | grep -E "sacc|spes|service|monitor"
+
+ ps aux | grep -i "SpesAuthService"
+
+  ps aux | grep -i "sacc"
+
+
+sudo apt update
+sudo apt install -y \
+  iputils-ping \
+  dnsutils \
+  wget \
+  curl \
+  net-tools \
+  iproute2
+
+
+
+
+
+  docker run -d \
+  --name security-gui \
+  -p 3000:3000 \
+  -p 2222:22 \
+  -v /home/$USER/data:/config \
+  --shm-size="1gb" \
+  linuxserver/webtop:ubuntu-xfce
+
+
+  scp -P 2222 "/home/leozhao/xgate/xGate_Huawei_User_Linux.tar.gz" abc@127.0.0.1:/home/abc/
+
+  docker cp "/home/leozhao/xgate/xGate_Huawei_User_Linux.tar.gz" sec-gui:/home/abc/huawei.tar.gz
+
+sudo ln -sf /bin/dash /bin/sh
+
+
+
+  # 1. 停止并删除旧容器
+docker rm -f security-gui
+
+# 2. 重新启动，加上 --privileged 和 TUN 设备映射
+docker run -d \
+  --name security-gui \
+  --privileged \
+  --device /dev/net/tun:/dev/net/tun \
+  -p 3000:3000 \
+  -p 2222:22 \
+  -v /home/$USER/data:/config \
+  --shm-size="1gb" \
+  --restart unless-stopped \
+  linuxserver/webtop:ubuntu-xfce
+
+
+
+  import os
+
+# List of proxy variables to remove
+proxy_vars = [
+    'http_proxy', 'https_proxy', 'all_proxy',
+    'HTTP_PROXY', 'HTTPS_PROXY', 'ALL_PROXY'
+]
+
+for var in proxy_vars:
+    if var in os.environ:
+        del os.environ[var]
+        print(f"Unset: {var}")
+    else:
+        print(f"Skipped: {var} (not set)")
